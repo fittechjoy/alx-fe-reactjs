@@ -1,9 +1,10 @@
 // src/components/UserProfile.jsx
+import { useContext } from "react";
 import UserContext from "./UserContext";
 
 const UserProfile = (props) => {
 
-// const User
+  const userData = useContext(UserContext)
 
   return (
     <div>
