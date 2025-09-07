@@ -1,6 +1,10 @@
 // src/components/UserProfile.jsx
+import UserContext from "./UserContext";
 
 const UserProfile = (props) => {
+
+// const User
+
   return (
     <div>
       <h2>{props.name}</h2>
