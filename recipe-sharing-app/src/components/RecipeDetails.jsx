@@ -8,6 +8,7 @@ const RecipeDetails = () => {
   const recipe = useRecipeStore((state) =>
     state.recipes.find((r) => r.id === Number(recipeId))
   );
+ const addFavorite = useRecipeStore((state) => state.addFavorite);
 
   if (!recipe) return <p>Recipe not found!</p>;
 
@@ -15,7 +16,7 @@ const RecipeDetails = () => {
     <div>
       <h2>{recipe.title}</h2>
       <p>{recipe.description}</p>
-
+<button onClick={() => addFavorite(recipe.id)}>Add to Favorites</button>
       <h3>Edit Recipe</h3>
       <EditRecipeForm recipe={recipe} />
 
