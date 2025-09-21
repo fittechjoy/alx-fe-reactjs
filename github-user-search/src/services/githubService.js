@@ -13,10 +13,20 @@ export const fetchUserData = async (username) => {
 };
 
 // Advanced user search (with filters)
-export const searchUsers = async (query) => {
+export const searchUsers = async (query, location, minRepos) => {
   try {
+    
+    let searchQuery = query;
+
+    if (location) {
+      searchQuery += `+location:${location}`;
+    }
+    if (minRepos) {
+      searchQuery += `+repos:>=${minRepos}`;
+    }
+
     const response = await axios.get(
-      `https://api.github.com/search/users?q=${query}`
+      `https://api.github.com/search/users?q=${searchQuery}`
     );
     return response.data;
   } catch (error) {
