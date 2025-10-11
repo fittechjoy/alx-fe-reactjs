@@ -20,7 +20,7 @@ function FormikForm() {
         initialValues={{ username: "", email: "", password: "" }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          console.log("Form data:", values);
+          console.log("Form submitted:", values);
 
           fetch("https://jsonplaceholder.typicode.com/users", {
             method: "POST",
@@ -28,7 +28,7 @@ function FormikForm() {
             body: JSON.stringify(values),
           })
             .then((res) => res.json())
-            .then((data) => console.log("Registered:", data))
+            .then((data) => console.log("User registered:", data))
             .finally(() => {
               setSubmitting(false);
               resetForm();
