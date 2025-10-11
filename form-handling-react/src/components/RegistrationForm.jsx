@@ -4,7 +4,7 @@ function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setErrors] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,21 +16,21 @@ function RegistrationForm() {
     // }
 
     if (!username) {
-      setError("username is required!");
+      setErrors("username is required!");
       return;
     }
 
     if (!email) {
-      setError("email is required!");
+      setErrors("email is required!");
       return;
     }
 
     if (!password) {
-      setError("password is required!");
+      setErrors("password is required!");
       return;
     }
 
-    setError("");
+    setErrors("");
 
     const formData = { username, email, password };
     console.log("Form Submitted:", formData);
