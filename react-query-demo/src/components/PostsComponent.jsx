@@ -20,6 +20,8 @@ export default function PostsComponent() {
     queryFn: fetchPosts,
     staleTime: 1000 * 60 * 2, // 2 minutes caching
     cacheTime: 1000 * 60 * 5, // 5 minutes before garbage collection
+    refetchOnWindowFocus: false, // 👈 required
+    keepPreviousData: true,      // 👈 required
   });
 
   if (isLoading) return <p className="text-blue-500">Loading posts...</p>;
