@@ -20,6 +20,16 @@ function RegistrationForm() {
       return;
     }
 
+    if (!email) {
+      setError("email is required!");
+      return;
+    }
+
+    if (!password) {
+      setError("password is required!");
+      return;
+    }
+
     setError("");
 
     const formData = { username, email, password };
